@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Traffic AI Detection System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚦 Smart Traffic AI Detection System</h1>
+            <p>AI-powered traffic management with safety compliance detection</p>
+        </header>
+
+        <main>
+            <!-- Signal Status Section -->
+            <section class="signal-section">
+                <h2>Traffic Signal Status</h2>
+                <div class="signal-display" id="signalDisplay">
+                    <div class="signal-light red" id="signalLight"></div>
+                    <p id="signalState">Loading...</p>
+                    <p id="signalReason" class="signal-reason"></p>
+                </div>
+            </section>
+
+            <!-- Detection Section -->
+            <section class="detection-section">
+                <h2>Vehicle Detection</h2>
+                <div class="detection-controls">
+                    <button onclick="testDetection('two_wheeler', true)" class="btn btn-success">
+                        ✓ 2-Wheeler Compliant
+                    </button>
+                    <button onclick="testDetection('two_wheeler', false)" class="btn btn-danger">
+                        ✗ 2-Wheeler Non-Compliant
+                    </button>
+                    <button onclick="testDetection('four_wheeler', true)" class="btn btn-success">
+                        ✓ 4-Wheeler Compliant
+                    </button>
+                    <button onclick="testDetection('four_wheeler', false)" class="btn btn-danger">
+                        ✗ 4-Wheeler Non-Compliant
+                    </button>
+                </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section class="stats-section">
+                <h2>Statistics (Last 7 Days)</h2>
+                <div class="stats-grid" id="statsGrid">
+                    <div class="stat-card">
+                        <h3>Total Violations</h3>
+                        <p id="totalViolations" class="stat-value">-</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Helmet Violations</h3>
+                        <p id="helmetViolations" class="stat-value">-</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Seatbelt Violations</h3>
+                        <p id="seatbeltViolations" class="stat-value">-</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Compliance Rate</h3>
+                        <p id="complianceRate" class="stat-value">-</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Violations Section -->
+            <section class="violations-section">
+                <h2>Recent Violations</h2>
+                <table id="violationsTable" class="violations-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Violation Type</th>
+                            <th>Severity</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="violationsBody">
+                        <tr><td colspan="4">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Control Section -->
+            <section class="control-section">
+                <h2>Signal Control</h2>
+                <div class="control-buttons">
+                    <button onclick="controlSignal('green')" class="btn btn-primary">Force Green</button>
+                    <button onclick="controlSignal('red')" class="btn btn-danger">Force Red</button>
+                    <button onclick="controlSignal('yellow')" class="btn btn-warning">Force Yellow</button>
+                    <button onclick="resetSignal()" class="btn btn-secondary">Reset</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Smart Traffic AI Detection System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
